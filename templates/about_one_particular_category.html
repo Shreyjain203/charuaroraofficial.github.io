@@ -1,4 +1,3 @@
-
 <!DOCTYPE HTML>
 <!--
 	Massively by HTML5 UP
@@ -10,8 +9,8 @@
 		<title>Charu Arora Official</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/main.css') }}" />
+		<noscript><link rel="stylesheet" href="{{ url_for('static', filename='assets/css/noscript.css') }}" /></noscript>
 	</head>
 	<body class="is-preload">
 
@@ -19,26 +18,26 @@
 			<div id="wrapper">
 
 				<!-- Header -->
-					<header id="header">
-						<a href="index.html" class="logo">Charu Arora Official</a>
-					</header>
+                <header id="header"> <!--Logo-->
+                    <a href="{{ url_for('index') }}" class="logo"><img src="{{ url_for('static', filename='images//logo.png') }}" alt=""/></a>
+                </header>
 
 				<!-- Nav -->
-                    <nav id="nav">
-                        <ul class="links">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="about_us.html">About us</a></li>
-                            <li class="active"><a href="category.html">category</a></li>
-                            <li><a href="celebrity_influencers.html">celebrity and influencers</a></li>
-                            <li><a href="contact_us.html">contact us</a></li>
-                        </ul>
-                        <ul class="icons">
-                            <li><a href="https://www.instagram.com/charuaroraofficial/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-                            <li><a href="https://wa.me/message/2IEUGSZPYZ4HL1" class="icon brands fa-whatsapp"><span class="label">WhatsApp</span></a></li>
-                            <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-                            <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-                        </ul>
-                    </nav>
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="{{ url_for('index') }}">Home</a></li>
+							<li><a href="{{ url_for('about_us') }}">About us</a></li>
+							<li class="active"><a href="{{ url_for('collections') }}">collections</a></li>
+							<li><a href="{{ url_for('celebrity_influencers') }}">celebrity and influencers</a></li>
+							<li><a href="{{ url_for('contact_us') }}">contact us</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://www.instagram.com/charuaroraofficial/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="https://wa.me/message/2IEUGSZPYZ4HL1" class="icon brands fa-whatsapp"><span class="label">WhatsApp</span></a></li>
+							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+						</ul>
+					</nav>
 
 				<!-- Main -->
 					<div id="main">
@@ -47,13 +46,13 @@
 							<section class="post">
 								<header class="major">
 									<!-- <span class="date">April 25, 2017</span> -->
-									<h1>viola</h1>
-									<p>organza(blouse and skirt) with organza dupatta</p>
+									<h1>{{ data[1] }}</h1>
+									<p>{{ data[3] }}</p>
 								</header>
 								<div class="image main"><img src="images/pic05.jpg" alt="" /></div>
-                                <p style="text-align: center;">Rs. 82,000.00</p>
-								<p><b>Material:</b> sequins, cutdana, crystals, mirrors</p>
-								<p>Introducing "viola" a capyivating lehenga meticulously crafted from exquisite organza fabric. Paired with an ethereal organza dupatta, adorned with intricate detailing of sequins, cut dana and crystals, this ensemble embodies a perfect blend of elegance and sophistication.</p>
+                                <p style="text-align: center;">Rs. {{ data[2] }}</p>
+								<p><b>Material:</b>{{ data[4] }}</p>
+								<p>{{ data[5] }}</p>
                                 <ul class="actions special">
                                     <li><a href="https://wa.me/message/2IEUGSZPYZ4HL1" class="button">shop on whatsapp</a></li>
                                 </ul>
@@ -63,29 +62,8 @@
 
 				<!-- Footer -->
                 <footer id="footer">
-                    <section>
-                        <form method="post" action="#">
-                            <div class="fields">
-                                <div class="field">
-                                    <label for="name">Name</label>
-                                    <input type="text" name="name" id="name" />
-                                </div>
-                                <div class="field">
-                                    <label for="email">Email</label>
-                                    <input type="text" name="email" id="email" />
-                                </div>
-                                <div class="field">
-                                    <label for="message">Message</label>
-                                    <textarea name="message" id="message" rows="3"></textarea>
-                                </div>
-                            </div>
-                            <ul class="actions">
-                                <li><input type="submit" value="Send Message" /></li>
-                            </ul>
-                        </form>
-                    </section>
                     <section class="split contact">
-                        <section class="alt">
+                        <section>
                             <h3>Address</h3>
                             <p><a href = "https://www.google.com/maps/place/Charu+Arora+Official/@28.6414192,77.0716881,17z/data=!3m1!4b1!4m6!3m5!1s0x390d0571588e4883:0xa63772edfd85fd59!8m2!3d28.6414192!4d77.0716881!16s%2Fg%2F11l28l9_kr?hl=en-IN&entry=ttu">
                                 F-152, Block F, Vikaspuri<br />
@@ -99,24 +77,35 @@
                             <h3>Email</h3>
                             <p><a href="#">tjtejas123@gmail.com</a></p>
                         </section>
+                    <!-- </section> -->
+                        
                         <section>
                             <h3>Social</h3>
                             <ul class="icons alt">
                                 <li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
                                 <li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
                                 <li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-                                <li><a href="wa.me/message/2IEUGSZPYZ4HL1" class="icon brands fa-whatsapp"><span class="label">WhatsApp</span></a></li>
-							</ul>
-                        </section>
+                                <li><a href="https://wa.me/message/2IEUGSZPYZ4HL1" class="icon brands fa-whatsapp"><span class="label">WhatsApp</span></a></li>
+                            </ul>
+                    
                     </section>
                 </footer>
 
             <!-- Copyright -->
                 <div id="copyright">
-                    <ul><li>&copy; Copyright? Nah</li><li>Design: Shrey Jain. LOL</a></li></ul>
+                    <ul><li>&copy; Copyright?</li><li>Design: Shrey Jain. LOL</a></li></ul>
                 </div>
 
         </div>
 
-	</body>
+    <!-- Scripts -->
+        <script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='assets/js/jquery.scrollex.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='assets/js/jquery.scrolly.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='assets/js/browser.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='assets/js/breakpoints.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='assets/js/util.js') }}"></script>
+        <script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+
+</body>
 </html>

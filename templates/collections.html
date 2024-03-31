@@ -22,109 +22,41 @@
                     <a href="{{ url_for('index') }}" class="logo"><img src="{{ url_for('static', filename='images//logo.png') }}" alt=""/></a>
                 </header>
 
-            <!-- Nav -->
-                <nav id="nav">
-                    <ul class="links">
-                        <li><a href="{{ url_for('index') }}">Home</a></li>
-                        <li><a href="{{ url_for('about_us') }}">About us</a></li>
-                        <li class="active"><a href="{{ url_for('collections') }}">collections</a></li>
-                        <li><a href="{{ url_for('celebrity_influencers') }}">celebrity and influencers</a></li>
-                        <li><a href="{{ url_for('contact_us') }}">contact us</a></li>
-                    </ul>
-                    <ul class="icons">
-                        <li><a href="https://www.instagram.com/charuaroraofficial/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-                        <li><a href="https://wa.me/message/2IEUGSZPYZ4HL1" class="icon brands fa-whatsapp"><span class="label">WhatsApp</span></a></li>
-                        <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-                        <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-                    </ul>
-                </nav>
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="{{ url_for('index') }}">Home</a></li>
+							<li><a href="{{ url_for('about_us') }}">About us</a></li>
+							<li class="active"><a href="{{ url_for('collections') }}">collections</a></li>
+							<li><a href="{{ url_for('celebrity_influencers') }}">celebrity and influencers</a></li>
+							<li><a href="{{ url_for('contact_us') }}">contact us</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://www.instagram.com/charuaroraofficial/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="https://wa.me/message/2IEUGSZPYZ4HL1" class="icon brands fa-whatsapp"><span class="label">WhatsApp</span></a></li>
+							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+						</ul>
+					</nav>
 
 				<!-- Main -->
                 <div id="main">
 
-                    <!-- Featured Post -->
-                        <!-- <article class="post featured">
-                            <header class="major"> -->
-                                <!-- <span class="date">April 25, 2017</span> -->
-                                <!-- <h2><a href="#">Newly released collections</a></h2> -->
-                                <!-- <p>Aenean ornare velit lacus varius enim ullamcorper proin aliquam<br />
-                                facilisis ante sed etiam magna interdum congue. Lorem ipsum dolor<br />
-                                amet nullam sed etiam veroeros.</p> -->
-                            <!-- </header>
-                            <a href="#" class="image main"><img src="images/pic01.jpg" alt="" /></a>
-                            <ul class="actions special">
-                                <li><a href="#" class="button large">shop now</a></li> -->
-                            <!-- </ul>
-                        </article> -->
-
                     <!-- Posts -->
                         <section class="posts">
-                            <article>
-                                <header>
-                                    <!-- <span class="date">April 24, 2017</span> -->
-                                    <h2><a href="#">Lehanga</a></h2>
-                                </header>
-                                <a href="#" class="image fit"><img src="images/pic02.jpg" alt="" /></a>
-                                <!-- <p>Somoething SOmething</p> -->
-                                <ul class="actions special">
-                                    <li><a href="https://wa.me/message/2IEUGSZPYZ4HL1" class="button">shop on whatsapp</a></li>
-                                </ul>
-                            </article>
+                            {% for item in collections %}
                             <article>
                                 <header>
                                     <!-- <span class="date">April 22, 2017</span> -->
-                                    <h2><a href="#">Bridal gowns</a></h2>
+                                    <h2><a href="#">{{ item }}</a></h2>
                                 </header>
-                                <a href="#" class="image fit"><img src="images/pic03.jpg" alt="" /></a>
-                                <!-- <p>Somoething SOmething</p> -->
+                                <!-- <a href="#" class="image fit"><img src="{{ url_for('static', filename='images/' + 'bg.jpg') }}" alt="" /></a> -->
                                 <ul class="actions special">
                                     <li><a href="https://wa.me/message/2IEUGSZPYZ4HL1" class="button">shop on whatsapp</a></li>
+                                    <li><a href="{{ url_for('collection_type', collection_type_=item) }}" class="button">know more</a></li>
                                 </ul>
                             </article>
-                            <article>
-                                <header>
-                                    <!-- <span class="date">April 18, 2017</span> -->
-                                    <h2><a href="#">Saree and Drapes</a></h2>
-                                </header>
-                                <a href="#" class="image fit"><img src="images/pic04.jpg" alt="" /></a>
-                                <!-- <p>Somoething SOmething</p> -->
-                                <ul class="actions special">
-                                    <li><a href="https://wa.me/message/2IEUGSZPYZ4HL1" class="button">shop on whatsapp</a></li>
-                                </ul>
-                            </article>
-                            <article>
-                                <header>
-                                    <!-- <span class="date">April 14, 2017</span> -->
-                                    <h2><a href="https://wa.me/message/2IEUGSZPYZ4HL1">Anarkali</a></h2>
-                                </header>
-                                <a href="#" class="image fit"><img src="images/pic05.jpg" alt="" /></a>
-                                <!-- <p>Somoething SOmething</p> -->
-                                <ul class="actions special">
-                                    <li><a "https://wa.me/message/2IEUGSZPYZ4HL1" class="button">shop on whatsapp</a></li>
-                                </ul>
-                            </article>
-                            <article>
-                                <header>
-                                    <!-- <span class="date">April 11, 2017</span> -->
-                                    <h2><a href="#">Lux pret wear</a></h2>
-                                </header>
-                                <a href="#" class="image fit"><img src="images/pic06.jpg" alt="" /></a>
-                                <!-- <p>Somoething SOmething</p> -->
-                                <ul class="actions special">
-                                    <li><a href="https://wa.me/message/2IEUGSZPYZ4HL1" class="button">shop on whatsapp</a></li>
-                                </ul>
-                            </article>
-                            <article>
-                                <header>
-                                    <!-- <span class="date">April 7, 2017</span> -->
-                                    <h2><a href="#">View All</a></h2>
-                                </header>
-                                <a href="#" class="image fit"><img src="images/pic07.jpg" alt="" /></a>
-                                <!-- <p>Somoething SOmething</p> -->
-                                <ul class="actions special">
-                                    <li><a href="#" class="button">View all</a></li>
-                                </ul>
-                            </article>
+                            {% endfor %}
                         </section>
 
                     <!-- Footer -->
