@@ -23,13 +23,13 @@
 						<h1>Charu Arora Official</h1>
 						<!-- <p>A place to buy lehangas</p> -->
 						<p><a href="{{ url_for('collections') }}" class="button large">Shop Bridal wear</a></p> <!-- all categories -->
-						<p><a href="https://wa.me/message/2IEUGSZPYZ4HL1" target="_blank" class="button large">Book In-store appointment</a></p>
+						<p><a href="https://api.whatsapp.com/send?phone=+918448198806&text=Hi,%20I%20want%20to%20book%20an%20in-store%20Appointment" target="_blank" class="button large">Book In-store appointment</a></p>
 						</ul>
 					</div>
 
 				<!-- Header -->
 					<header id="header"> <!--Logo-->
-						<a href="{{ url_for('index') }}" class="logo"><img src="{{ url_for('static', filename='images//logo.png') }}" alt=""/></a>
+						<a href="{{ url_for('index') }}" class="logo"><img src="{{ url_for('static', filename='images/logo.png') }}" alt=""/></a>
 					</header>
 
 				<!-- Nav -->
@@ -42,10 +42,10 @@
 							<li><a href="{{ url_for('contact_us') }}">contact us</a></li>
 						</ul>
 						<ul class="icons">
-							<li><a href="https://www.instagram.com/charuaroraofficial/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-							<li><a href="https://wa.me/message/2IEUGSZPYZ4HL1" class="icon brands fa-whatsapp"><span class="label">WhatsApp</span></a></li>
-							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="https://www.instagram.com/charuaroraofficial/" class="icon brands fa-instagram" target="_blank"><span class="label">Instagram</span></a></li>
+							<li><a href="https://wa.me/message/2IEUGSZPYZ4HL1" class="icon brands fa-whatsapp" target="_blank"><span class="label">WhatsApp</span></a></li>
+							<!-- <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li> -->
 						</ul>
 					</nav>
 
@@ -57,56 +57,23 @@
 								<header class="major">
 									<h2><a href="#">Newly released collections</a></h2>
 								</header>
-								<a href="#" class="image main"><img src="{{ url_for('static', filename='images//pic01.jpg') }}" alt="" /></a>
-								<ul class="actions special">
-									<li><a href="https://wa.me/message/2IEUGSZPYZ4HL1" class="button large">shop on whatsapp</a></li>
-								</ul>
 							</article>
 
 						<!-- Posts -->
 							<section class="posts">
+								{% for item in data %}
 								<article>
 									<header>
-										<h2><a href="#">Lehanga</a></h2>
+										<h2><a href="#">{{ item[1] }}</a></h2>
 									</header>
 									<a href="#" class="image fit"><img src="{{ url_for('static', filename='images//pic02.jpg') }}" alt="" /></a>
+									<p style="text-align: center;">Rs. {{ item[2] }}</p>
 									<ul class="actions special">
-										<li><a href="{{ url_for('product_type',collection_type='jh', product='h') }}" class="button">More</a></li>
+										<li><a href="https://api.whatsapp.com/send?phone=+918448198806&text=Hi,%20I%20want%20to%20know%20more%20about%20{{item[1]}}%20outfit%20in%20{{item[0]}}%20collection" class="button" target="_blank">shop on whatsapp</a></li>
+										<li><a href="{{ url_for('product_type',collection_type_=item[0], product=item[1]) }}" class="button">More</a></li>
 									</ul>
 								</article>
-								<article>
-									<header>
-										<!-- <span class="date">April 22, 2017</span> -->
-										<h2><a href="#">Suits</a></h2>
-									</header>
-									<a href="#" class="image fit"><img src="{{ url_for('static', filename='images//pic03.jpg') }}" alt="" /></a>
-									<!-- <p>Somoething SOmething</p> -->
-									<ul class="actions special">
-										<li><a href="https://wa.me/message/2IEUGSZPYZ4HL1" class="button">shop on whatsapp</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										<!-- <span class="date">April 18, 2017</span> -->
-										<h2><a href="#">Saree and Drape Saree</a></h2>
-									</header>
-									<a href="#" class="image fit"><img src="{{ url_for('static', filename='images//pic04.jpg') }}" alt="" /></a>
-									<!-- <p>Somoething SOmething</p> -->
-									<ul class="actions special">
-										<li><a href="https://wa.me/message/2IEUGSZPYZ4HL1" class="button">shop on whatsapp</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										<!-- <span class="date">April 14, 2017</span> -->
-										<h2><a href="#">best seller</a></h2>
-									</header>
-									<a href="#" class="image fit"><img src="{{ url_for('static', filename='images//pic05.jpg') }}" alt="" /></a>
-									<!-- <p>Somoething SOmething</p> -->
-									<ul class="actions special">
-										<li><a href="https://wa.me/message/2IEUGSZPYZ4HL1" class="button">shop on whatsapp</a></li>
-									</ul>
-								</article>
+								{% endfor %}
 
 								 <!-- View all -->
 							<!-- </section>
@@ -153,11 +120,11 @@
 							<section>
 								<h3>Social</h3>
 								<ul class="icons alt">
-									<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
-									<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
-									<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-									<li><a href="https://wa.me/message/2IEUGSZPYZ4HL1" class="icon brands fa-whatsapp"><span class="label">WhatsApp</span></a></li>
-							    </ul>
+									<li><a href="https://www.instagram.com/charuaroraofficial/" class="icon brands fa-instagram" target="_blank"><span class="label">Instagram</span></a></li>
+									<li><a href="https://wa.me/message/2IEUGSZPYZ4HL1" class="icon brands fa-whatsapp" target="_blank"><span class="label">WhatsApp</span></a></li>
+									<!-- <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li> -->
+								</ul>
 						
 						</section>
 					</footer>

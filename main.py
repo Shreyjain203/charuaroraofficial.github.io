@@ -3,7 +3,7 @@ import pandas as pd
 
 app = Flask(__name__)
 
-index = pd.read_excel("static/data/data.xlsx",
+index_data = pd.read_excel("static/data/data.xlsx",
                       sheet_name='index_page')
 
 collection_list = pd.read_excel("static/data/data.xlsx",
@@ -14,11 +14,11 @@ collections_ = list(collection_list['Content'].values)
 
 @app.route('/')
 def homepage():
-    return render_template('index.html')
+    return render_template('index.html', data=index_data.values.tolist())
 
 @app.route('/index')
 def index():
-    return render_template('index.html')
+    return render_template('index.html',data=index_data.values.tolist())
 
 @app.route('/about_us')
 def about_us():
@@ -46,7 +46,7 @@ def collection_type(collection_type_):
 @app.route('/collections/<collection_type_>/<product>')
 def product_type(collection_type_, product):
     if collection_type_ not in collections_:
-        return "404 not found"
+        return collection_type_+product+"404 not found"
 
     product_df = pd.read_excel("static/data/data.xlsx",
                                sheet_name=collection_type_)
